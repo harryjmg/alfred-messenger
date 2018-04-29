@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  psid: MyString
+  first_name: MyString
+  last_name: MyString
+  flow_testing: false
+
+two:
+  psid: MyString
+  first_name: MyString
+  last_name: MyString
+  flow_testing: false
