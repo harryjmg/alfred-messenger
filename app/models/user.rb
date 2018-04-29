@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+	require "facebook/messenger"
+
+	include Facebook::Messenger
+
 	has_many :flow_entry
 
 	def start_flow_test

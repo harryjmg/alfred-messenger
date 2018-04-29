@@ -3,6 +3,8 @@ namespace :flow_test do
   desc "Flow testing if this user has to"
   task :flow_ask => :environment do
 
+  	include Facebook::Messenger
+
   	User.all.each do |u|
   		if u.flow_testing
   			current_time = Time.now
