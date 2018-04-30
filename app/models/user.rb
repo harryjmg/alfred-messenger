@@ -12,8 +12,9 @@ class User < ApplicationRecord
 		current_time = Time.now
 		begin
 			nouveau_temps = (3600 + rand(5400))
+			current_time = current_time + nouveau_temps
 			total = total + nouveau_temps
-			tableau_intervalles << (current_time + nouveau_temps).iso8601
+			tableau_intervalles << current_time.iso8601
 		end until total > 80000
 
 		intervalles = ""
