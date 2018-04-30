@@ -13,15 +13,18 @@ class User < ApplicationRecord
 		begin
 			nouveau_temps = (3600 + rand(5400))
 			total = total + nouveau_temps
-			tableau_intervalles << (current_time + nouveau_temps).to_s
+			tableau_intervalles << (current_time + nouveau_temps).iso8601
 		end until total > 80000
+
+		intervalles = ""
+		tableau_intervalles.each do |i|
+			intervalles << i
+			intervalles << " "
+		end
 
 		# Change User attributes in db
 		current_user = self
-		current_user.flow_test_intervals = tableau_intervalles.to_s
-		current_user.flow_testing = true
-		current_user.flow_test_cursor = Time.now.to_s
-		current_user.save
+		current_user.update_attributes(:flow_test_intervals => intervalles, :flow_testing => true)
 	end	
 
 	def flow_test_bip
