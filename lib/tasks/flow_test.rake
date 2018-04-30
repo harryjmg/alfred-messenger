@@ -9,7 +9,7 @@ namespace :flow_test do
   		if u.flow_testing
   			current_time = Time.now
   			flow_test_intervals_array = u.flow_test_intervals.split(' ')
-  			next_time = Time.parse(u.flow_test_intervals_array[0])
+  			next_time = Time.parse(flow_test_intervals_array[0])
   			if current_time > next_time
   				# 1. Send test bip
   				u.flow_test_bip	
