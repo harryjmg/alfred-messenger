@@ -30,14 +30,19 @@ Bot.on :message do |message|
 	message.mark_seen
 
 	the_user = User.find_by(psid: message.sender["id"])
+	if the_user == nil
+		the_user = User.create(psid: message.sender["id"])
+	end
 
 	if (message.text.include? "Bonjour")
 		the_user.update_attribute(:flow_testing, true)
-		answer(message, "Bonjour ma gueule ! Souviens toi que tout niquer tu dois")
+		answer(message, "Bonjour ! Souviens toi que tout niquer tu dois")
 		the_user.start_flow_test
 	elsif (message.text.include? "Bonne nuit")
 		the_user.update_attribute(:flow_testing, false)
 		the_user.end_of_day(message)
+	elsif (message.text.include? "psid?")
+		answer(message, "Ton url : https://alfred-harryjmg.herokuapp.com/flow_entry?id={the_user.id}")
 	elsif message.text.count('.') == 2
 		splitted = message.text.split('.')
 		the_user.flow_entry.create!(what: splitted[0], feeling: splitted[1], flow: splitted[2])
