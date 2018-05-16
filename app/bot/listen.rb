@@ -42,7 +42,9 @@ Bot.on :message do |message|
 		the_user.update_attribute(:flow_testing, false)
 		the_user.end_of_day(message)
 	elsif (message.text.include? "psid?")
-		answer(message, "Ton url : https://alfred-harryjmg.herokuapp.com/flow_entry?id={the_user.id}")
+		answer(message, "Ton url : https://secure-ravine-43937.herokuapp.com/flow_entry?id={the_user.id}")
+	elsif (message.text.include? "help?")
+		answer(message, "Mode d'emploi : Bonjour pour demarrer, Bonne nuit pour arreter, psid? pour aller voir ton recapitulatif, pour les entrees du flow test suivre ce format : Je fais x. Je me sens bien. Oui (ou non)")
 	elsif message.text.count('.') == 2
 		splitted = message.text.split('.')
 		the_user.flow_entry.create!(what: splitted[0], feeling: splitted[1], flow: splitted[2])
