@@ -10,11 +10,6 @@ Facebook::Messenger::Subscriptions.subscribe(access_token: ENV["ACCESS_TOKEN"])
 # message.sent_at     # => 2016-04-22 21:30:36 +0200
 # message.text        # => 'Hello, bot!'
 
-# Bonjour : flow on
-# Bonne nuit : flow off + ask habits
-# Help : 
-# 
-
 def answer(message, text)
 	Bot.deliver({
 		recipient: message.sender,
@@ -42,7 +37,7 @@ Bot.on :message do |message|
 		the_user.update_attribute(:flow_testing, false)
 		the_user.end_of_day(message)
 	elsif (message.text.include? "psid?")
-		answer(message, "Ton url : https://secure-ravine-43937.herokuapp.com/flow_entry?id={the_user.id}")
+		answer(message, "Ton url : https://flowtracer03.herokuapp.com/flow_entry?id=#{the_user.id}")
 	elsif (message.text.include? "help?")
 		answer(message, "Mode d'emploi : Bonjour pour demarrer, Bonne nuit pour arreter, psid? pour aller voir ton recapitulatif, pour les entrees du flow test suivre ce format : Je fais x. Je me sens bien. Oui (ou non)")
 	elsif message.text.count('.') == 2
@@ -65,5 +60,3 @@ Bot.on :postback do |postback|
 		puts "Coco"
 	end
 end
-
-
