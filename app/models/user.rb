@@ -3,7 +3,7 @@ class User < ApplicationRecord
 
 	include Facebook::Messenger
 
-	before_create :set_private_id
+	after_create :set_private_id
 	has_many :flow_entry
 
 	def start_flow_test
@@ -38,7 +38,7 @@ class User < ApplicationRecord
 	end
 
 	def set_private_id
-		private_id = SecureRandom.hex(4)
+		update_attribute(:private_id, SecureRandom.hex(4))
 	end
 
 	private

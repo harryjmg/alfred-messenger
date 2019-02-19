@@ -41,6 +41,7 @@ Bot.on :message do |message|
 	else
 		answer(message, "Harry ne m'a pas appris ta langue dsl")
 	end
+	message.typing_off
 end
 
 Bot.on :postback do |postback|
