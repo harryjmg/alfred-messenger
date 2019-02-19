@@ -23,28 +23,28 @@ Bot.on :message do |message|
 	puts "Sender psid = #{message.sender}"
 
 	message.mark_seen
+	message.typing_on
+
+	sleep 1
 
 	the_user = User.find_by(psid: message.sender["id"])
 	if the_user == nil
 		the_user = User.create(psid: message.sender["id"])
 	end
 
-	if (message.text.include? "Bonjour")
+	if (message.text.upcase.include? "START")
 		the_user.update_attribute(:flow_testing, true)
-		answer(message, "Bonjour ! Souviens toi que tout niquer tu dois")
+		answer(message, "Début du test")
 		the_user.start_flow_test
-	elsif (message.text.include? "Bonne nuit")
+	elsif (message.text.upcase.include? "STOP")
 		the_user.update_attribute(:flow_testing, false)
-		the_user.end_of_day(message)
-	elsif (message.text.include? "psid?")
-		answer(message, "Ton url : https://flowtracer03.herokuapp.com/flow_entry?id=#{the_user.psid}")
-	elsif (message.text.include? "help?")
-		answer(message, "Mode d'emploi : Bonjour pour demarrer, Bonne nuit pour arreter, psid? pour aller voir ton recapitulatif, pour les entrees du flow test suivre ce format : Je fais x. Je me sens bien. Oui (ou non)")
-	elsif message.text.count('.') == 2
-		splitted = message.text.split('.')
-		the_user.flow_entry.create!(what: splitted[0], feeling: splitted[1], flow: splitted[2])
+		answer(message, "Fin du test pour aujourd'hui")
+	elsif (message.text.upcase.include? "LINK")
+		answer(message, "Ton url : https://flowtracer03.herokuapp.com/flow_entry?id=#{the_user.private_id}")
+	elsif (message.text.upcase.include? "HELP")
+		answer(message, "Start / Stop / Link")
 	else
-		answer(message, "Je panique.")
+		answer(message, "Harry ne m'a pas appris ta langue dsl")
 	end
 end
 

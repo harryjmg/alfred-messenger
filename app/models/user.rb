@@ -3,6 +3,9 @@ class User < ApplicationRecord
 
 	include Facebook::Messenger
 
+	before_validation :set_private_id
+	validates :private_id, uniqueness: true
+
 	has_many :flow_entry
 
 	def start_flow_test
@@ -26,32 +29,21 @@ class User < ApplicationRecord
 		# Change User attributes in db
 		current_user = self
 		current_user.update_attributes(:flow_test_intervals => intervalles, :flow_testing => true)
-	end	
+	end
 
 	def flow_test_bip
-		send_text(self.psid, "Tu fais quoi ? Tu te sens comment ? Etat de flow ? (Separe tes reponses par des points)")
+		send_text(self.psid, "Pause ! https://alfredcorp.typeform.com/to/hwJrHr?#{self.private_id}")
 	end
 
 	def end_of_day(message)
-		send_text(self.psid, "Bonne nuit Harry, j'espere que t'as bien tout niqué et que t'as respecté tes habitudes ! (Lever tot, Lecture, Procrastination, Video)")
-		
-		# habits = ["procrasinate", "read", "music"]
-		# message.reply(
-		#   attachment: {
-		#     type: 'template',
-		#     payload: {
-		#       template_type: 'button',
-		#       text: 'As tu procrastiné ?',
-		#       buttons: [
-		#         { type: 'postback', title: "J'ai tout niqué", payload: 'procrastinate_no' },
-		#         { type: 'postback', title: "J'ai merdé", payload: 'procrastinate_yes' }
-		#       ]
-		#     }
-		#   }
-		# )
+		send_text(self.psid, "Bonne nuit")
 	end
 
 	private
+
+	def set_private_id
+		self.private_id = SecureRandom.hex(4)
+	end
 
 	def send_text(psid, text)
 		Bot.deliver({
