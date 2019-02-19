@@ -39,11 +39,11 @@ class User < ApplicationRecord
 		send_text(self.psid, "Bonne nuit")
 	end
 
-	private
-
 	def set_private_id
 		self.private_id = SecureRandom.hex(4)
 	end
+
+	private
 
 	def send_text(psid, text)
 		Bot.deliver({
