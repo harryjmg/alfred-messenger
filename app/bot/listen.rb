@@ -28,7 +28,7 @@ Bot.on :message do |message|
 	the_user = User.where(psid: message.sender["id"]).first
 	if the_user.nil?
 		the_user = User.new(psid: message.sender["id"])
-		the_user.private_id = SecureRandom.hex(4))
+		the_user.private_id = SecureRandom.hex(4)
 		the_user.save
 	end
 
