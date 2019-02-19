@@ -3,9 +3,7 @@ class User < ApplicationRecord
 
 	include Facebook::Messenger
 
-	before_validation :set_private_id
-	validates :private_id, uniqueness: true
-
+	before_create :set_private_id
 	has_many :flow_entry
 
 	def start_flow_test

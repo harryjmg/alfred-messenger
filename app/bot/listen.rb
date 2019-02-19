@@ -25,7 +25,7 @@ Bot.on :message do |message|
 	message.mark_seen
 	message.typing_on
 
-	the_user = User.first_or_create(psid: message.sender["id"])
+	the_user = User.where(psid: message.sender["id"]).first_or_create
 
 	if (message.text.upcase.include? "START")
 		the_user.update_attribute(:flow_testing, true)
