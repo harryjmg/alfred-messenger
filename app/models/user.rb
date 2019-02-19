@@ -3,7 +3,6 @@ class User < ApplicationRecord
 
 	include Facebook::Messenger
 
-	after_create :set_private_id
 	has_many :flow_entry
 
 	def start_flow_test
@@ -35,10 +34,6 @@ class User < ApplicationRecord
 
 	def end_of_day(message)
 		send_text(self.psid, "Bonne nuit")
-	end
-
-	def set_private_id
-		update_attribute(:private_id, SecureRandom.hex(4))
 	end
 
 	private
