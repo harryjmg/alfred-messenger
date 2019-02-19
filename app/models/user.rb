@@ -40,7 +40,7 @@ class User < ApplicationRecord
 	end
 
 	def set_private_id
-		self.private_id = SecureRandom.hex(4)
+		private_id = SecureRandom.hex(4)
 	end
 
 	private
