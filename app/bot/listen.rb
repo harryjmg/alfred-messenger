@@ -19,6 +19,15 @@ def answer(message, text)
 	}, access_token: ENV["ACCESS_TOKEN"])
 end
 
+def send(psid, text)
+	Bot.deliver({
+		recipient: { 'id' => psid },
+		message: {
+			text: text
+		}
+	}, access_token: ENV["ACCESS_TOKEN"])
+end
+
 Bot.on :message do |message|
 	puts "Sender psid = #{message.sender}"
 
