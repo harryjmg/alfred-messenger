@@ -29,7 +29,7 @@ class User < ApplicationRecord
 	end
 
 	def flow_test_bip
-		send_text(self.psid, "Pause ! https://alfredcorp.typeform.com/to/hwJrHr?#{self.private_id}")
+		send_text(self.psid, "Pause ! https://alfredcorp.typeform.com/to/hwJrHr?id=#{self.private_id}")
 	end
 
 	def end_of_day(message)
