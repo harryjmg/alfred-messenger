@@ -4,21 +4,21 @@ class FlowEntry < ApplicationRecord
 	def theorical_state
 		if challenge_level.nil? || skill_level.nil?
 			"None"
-		elsif challenge_level > 5 && skill_level == 5
+		elsif challenge_level > 3 && skill_level == 3
 			"Stimulé"
-		elsif challenge_level > 5 && skill_level < 5
+		elsif challenge_level > 3 && skill_level < 3
 			"Anxiété"
-		elsif challenge_level == 5 && skill_level < 5
+		elsif challenge_level == 3 && skill_level < 3
 			"Inquiétude"
-		elsif challenge_level < 5 && skill_level < 5
+		elsif challenge_level < 3 && skill_level < 3
 			"Apathie"
-		elsif challenge_level < 5 && skill_level == 5
+		elsif challenge_level < 3 && skill_level == 3
 			"Ennui"
-		elsif challenge_level < 5 && skill_level > 5
+		elsif challenge_level < 3 && skill_level > 3
 			"Relaxation"
-		elsif challenge_level == 5 && skill_level > 5
+		elsif challenge_level == 3 && skill_level > 3
 			"Controle"
-		elsif challenge_level > 5 && skill_level > 5
+		elsif challenge_level > 3 && skill_level > 3
 			"Flow"
 		end
 	end
