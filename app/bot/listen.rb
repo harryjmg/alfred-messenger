@@ -40,7 +40,7 @@ Bot.on :message do |message|
 		the_user.update_attribute(:flow_testing, false)
 		answer(message, "Fin du test pour aujourd'hui")
 	elsif (message.text.upcase.include? "LINK")
-		answer(message, "Ton url : https://flowtracer03.herokuapp.com/flow_entry?id=#{the_user.private_id}")
+		answer(message, "Ton url : https://flowtracker03.herokuapp.com/flow_entries?id=#{the_user.private_id}")
 	elsif (message.text.upcase.include? "HELP")
 		answer(message, "Start / Stop / Link")
 	else

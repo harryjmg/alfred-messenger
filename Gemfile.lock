@@ -188,6 +188,8 @@ GEM
     selenium-webdriver (3.11.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2)
+    semantic-ui-sass (2.4.0.1)
+      sass (>= 3.2)
     signet (0.8.1)
       addressable (~> 2.3)
       faraday (~> 0.9)
@@ -244,6 +246,7 @@ DEPENDENCIES
   rails (~> 5.1.6)
   sass-rails (~> 5.0)
   selenium-webdriver
+  semantic-ui-sass
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)

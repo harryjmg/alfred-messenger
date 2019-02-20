@@ -1,3 +1,34 @@
-<% @flow_entries.each do |flow_entry| %>
-	<%= flow_entry.what %>, <%= flow_entry.feeling %>, <%= flow_entry.flow %> <br>
-<% end %>
+
+
+<table class="ui celled table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Status</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+		<% @flow_entries.each do |flow_entry| %>
+    	<tr>
+				<td><%= flow_entry.created_at %></td>
+				<td><%= flow_entry.activity_name %></td>
+				<td><%= flow_entry.theorical_state %></td>
+				<td><%= flow_entry.activity_category %></td>
+				<td><%= flow_entry.challenge_level %></td>
+				<td><%= flow_entry.skill_level %></td>
+				<td><%= flow_entry.feeling_competent %></td>
+				<td><%= flow_entry.mentally_absorbed %></td>
+				<td><%= flow_entry.clear_objectives %></td>
+				<td><%= flow_entry.control_situation %></td>
+				<td><%= flow_entry.free_from_ego %></td>
+				<td><%= flow_entry.free_from_time %></td>
+				<td><%= flow_entry.clear_conditions %></td>
+				<td><%= flow_entry.great_experience %></td>
+				<td><%= flow_entry.is_voluntary %></td>
+				<td><%= flow_entry.happiness_level %></td>
+				<td><%= flow_entry.social_quality %></td>
+			</tr>
+		<% end %>
+  </tbody>
+</table>
