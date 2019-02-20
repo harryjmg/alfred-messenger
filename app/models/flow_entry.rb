@@ -2,7 +2,9 @@ class FlowEntry < ApplicationRecord
 	belongs_to :user
 
 	def theorical_state
-		if challenge_level > 5 && skill_level = 5
+		if challenge_level.nil? || skill_level.nil?
+			"None"
+		elsif challenge_level > 5 && skill_level = 5
 			"Stimulé"
 		elsif challenge_level > 5 && skill_level < 5
 			"Anxiété"
