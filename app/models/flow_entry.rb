@@ -1,6 +1,8 @@
 class FlowEntry < ApplicationRecord
 	belongs_to :user
 
+	scope :sorted_by_date, -> { order(:created_at )}
+
 	def theorical_state
 		if challenge_level.nil? || skill_level.nil?
 			"None"
