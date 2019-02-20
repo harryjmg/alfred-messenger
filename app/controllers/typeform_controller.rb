@@ -18,6 +18,7 @@ class TypeformController < ApplicationController
       flow_entry.update_attribute("#{FlowEntry::FLOW_ENTRY_ATTRIBUTES[i]}", choice)
       i = i + 1
     end
+    u.received_test
 
     render json: {:status => 200}
   end

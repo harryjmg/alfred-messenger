@@ -28,8 +28,12 @@ class User < ApplicationRecord
 		current_user.update_attributes(:flow_test_intervals => intervalles, :flow_testing => true)
 	end
 
+	def received_test
+		send_text(self.psid, "J'ai bien recu ton echantillon de vie, merci.")
+	end
+
 	def flow_test_bip
-		send_text(self.psid, "Pause ! https://alfredcorp.typeform.com/to/hwJrHr?id=#{self.private_id}")
+		send_text(self.psid, "C'est l'heure des mesures ! https://alfredcorp.typeform.com/to/hwJrHr?id=#{self.private_id}")
 	end
 
 	def end_of_day(message)
