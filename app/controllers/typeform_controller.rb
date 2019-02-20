@@ -3,6 +3,8 @@ class TypeformController < ApplicationController
   def webhook
     begin
       event = JSON.parse(request.body.read)
+      puts "____________ BONJOUR ____________________"
+      puts event
       method = "handle_" + event['type'].tr('.', '_')
       self.send method, event
     rescue JSON::ParserError => e
