@@ -2,6 +2,7 @@ class TypeformController < ApplicationController
 
   def webhook
     begin
+      puts "______ BONJOUR _______"
       event = JSON.parse(request.body.read)
 
       form_response = event["form_response"]
@@ -15,15 +16,16 @@ class TypeformController < ApplicationController
       i = 0
       answers.each do |answer|
         choice = answer[answer["type"]]
-        flow_entry.write_attribute("#{FlowEntry::FLOW_ENTRY_ATTRIBUTES[i]}", choice)
+        flow_entry.update_attribute("#{FlowEntry::FLOW_ENTRY_ATTRIBUTES[i]}", choice)
         i = i + 1
       end
-      flow_entry.save
+      puts "______ AUREVOIR _______"
 
     rescue JSON::ParserError => e
       render json: {:status => 400, :error => "Invalid payload"} and return
     rescue NoMethodError => e
       # missing event handler
+      puts "______ SOMBRE ZONE _______"
     end
 
     render json: {:status => 200}
