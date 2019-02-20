@@ -14,7 +14,7 @@ class TypeformController < ApplicationController
     i = 0
     answers.each do |answer|
       choice = answer[answer["type"]]
-      choice = choice["label"] if answer["type"] == "choice"
+      choice = choice["label"] if answer["type"] == "choice" || answer["type"] == "multiple_choice"
       flow_entry.update_attribute("#{FlowEntry::FLOW_ENTRY_ATTRIBUTES[i]}", choice)
       i = i + 1
     end

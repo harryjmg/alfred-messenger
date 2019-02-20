@@ -30,23 +30,23 @@ Bot.on :message do |message|
 		the_user = User.new(psid: message.sender["id"])
 		the_user.private_id = SecureRandom.hex(4)
 		the_user.save
-	end
-
-	if (message.text.upcase.include? "START")
-		the_user.update_attribute(:flow_testing, true)
-		answer(message, "Début du test")
-		the_user.start_flow_test
-	elsif (message.text.upcase.include? "STOP")
-		the_user.update_attribute(:flow_testing, false)
-		answer(message, "Fin du test pour aujourd'hui")
-	elsif (message.text.upcase.include? "LINK")
-		answer(message, "Ton url : https://flowtracker03.herokuapp.com/flow_entries?id=#{the_user.private_id}")
-	elsif (message.text.upcase.include? "HELP")
-		answer(message, "Start / Stop / Link")
 	else
-		answer(message, "Harry ne m'a pas appris ta langue dsl")
+		if (message.text.upcase.include? "START")
+			the_user.update_attribute(:flow_testing, true)
+			answer(message, "Début du test")
+			the_user.start_flow_test
+		elsif (message.text.upcase.include? "STOP")
+			the_user.update_attribute(:flow_testing, false)
+			answer(message, "Fin du test pour aujourd'hui")
+		elsif (message.text.upcase.include? "LINK")
+			answer(message, "Ton url : https://flowtracker03.herokuapp.com/flow_entries?id=#{the_user.private_id}")
+		elsif (message.text.upcase.include? "HELP")
+			answer(message, "Start / Stop / Link")
+		else
+			answer(message, "Harry ne m'a pas appris ta langue dsl")
+		end
+		message.typing_off
 	end
-	message.typing_off
 end
 
 Bot.on :postback do |postback|
