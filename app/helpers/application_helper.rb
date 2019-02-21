@@ -10,6 +10,8 @@ module ApplicationHelper
     when 3
       "#9FF781"
     when 4
+      "#81DAF5"
+    when 5
       "#58ACFA"
     else
       "white"

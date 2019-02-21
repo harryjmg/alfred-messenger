@@ -40,7 +40,7 @@
 				<td style="background-color: <%= bg_for_feelings(flow_entry.clear_conditions) %>"><%= flow_entry.clear_conditions + 1 %></td>
 				<td style="background-color: <%= bg_for_feelings(flow_entry.great_experience) %>"><%= flow_entry.great_experience + 1 %></td>
 				<td style="background-color: <%= bg_for_bool(flow_entry.is_voluntary?) %>"><%= flow_entry.is_voluntary? ? "Oui" : "Non" %></td>
-				<td style="background-color: <%= bg_for_feelings(flow_entry.happiness_level) %>"><%= flow_entry.happiness_level + 1 %></td>
+				<td style="background-color: <%= bg_for_feelings(flow_entry.happiness_level / 2) %>"><%= flow_entry.happiness_level %></td>
 				<td style="background-color: <%= bg_for_feelings(flow_entry.social_quality) %>"><%= flow_entry.social_quality + 1 if flow_entry.social_quality %></td>
 			</tr>
 		<% end %>
