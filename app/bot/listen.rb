@@ -5,11 +5,6 @@ include Facebook::Messenger
 
 Facebook::Messenger::Subscriptions.subscribe(access_token: ENV["ACCESS_TOKEN"])
 
-# message.id          # => 'mid.1457764197618:41d102a3e1ae206a38'
-# message.sender      # => { 'id' => '1008372609250235' }
-# message.sent_at     # => 2016-04-22 21:30:36 +0200
-# message.text        # => 'Hello, bot!'
-
 def answer(message, text)
 	Bot.deliver({
 		recipient: message.sender,
@@ -30,23 +25,24 @@ Bot.on :message do |message|
 		the_user = User.new(psid: message.sender["id"])
 		the_user.private_id = SecureRandom.hex(4)
 		the_user.save
+		message.typing_off
 		answer(message, "Bienvenue maggl. Alors le but ici c'est de relever ton état d'esprit au quotidien dans le but d'améliorer ta vie. Moi c'est Alfred et je suis principalement la pour te rappeler de répondre a un questionnaire a des intervalles aléatoires. Voila voila. Sinon les commandes que tu peux utiliser a partir de maintenant sont les suivantes [Start / Stop / Link / Help]. Des bisous")
 	else
-		if (message.text.upcase.include? "START")
+		message.typing_off
+		if (message.text&.upcase&.include? "START")
 			the_user.update_attribute(:flow_testing, true)
 			answer(message, "Début du test. Bonne journée !")
 			the_user.start_flow_test
-		elsif (message.text.upcase.include? "STOP")
+		elsif (message.text&.upcase&.include? "STOP")
 			the_user.update_attribute(:flow_testing, false)
 			answer(message, "Fin du test pour aujourd'hui.")
-		elsif (message.text.upcase.include? "LINK")
+		elsif (message.text&.upcase&.include? "LINK")
 			answer(message, "Ton url : https://flowtracker03.herokuapp.com/flow_entries?id=#{the_user.private_id} . Si tu as des idées pour rendre plus pertinent l'affichage de tes résultats n'hésite pas a en parler a Harry (pas moi pcq je capte rien de ce que tu dis)")
-		elsif (message.text.upcase.include? "HELP")
+		elsif (message.text&.upcase&.include? "HELP")
 			answer(message, "Start / Stop / Link . C'est pas sorcier")
 		else
 			answer(message, "Harry ne m'a pas appris ta langue dsl")
 		end
-		message.typing_off
 	end
 end
 

@@ -29,18 +29,18 @@
 				<td><%= flow_entry.activity_name %></td>
 				<td><%= flow_entry.theorical_state %></td>
 				<td><%= flow_entry.activity_category %></td>
-				<td><%= flow_entry.challenge_level %></td>
-				<td><%= flow_entry.skill_level %></td>
-				<td><%= flow_entry.feeling_competent %></td>
-				<td><%= flow_entry.mentally_absorbed %></td>
-				<td><%= flow_entry.clear_objectives %></td>
-				<td><%= flow_entry.control_situation %></td>
-				<td><%= flow_entry.free_from_ego %></td>
-				<td><%= flow_entry.free_from_time %></td>
-				<td><%= flow_entry.clear_conditions %></td>
-				<td><%= flow_entry.great_experience %></td>
-				<td><%= flow_entry.is_voluntary %></td>
-				<td><%= flow_entry.happiness_level %></td>
+				<td><%= flow_entry.challenge_level + 1 %></td>
+				<td><%= flow_entry.skill_level + 1 %></td>
+				<td><%= flow_entry.feeling_competent + 1 %></td>
+				<td><%= flow_entry.mentally_absorbed + 1 %></td>
+				<td><%= flow_entry.clear_objectives + 1 %></td>
+				<td><%= flow_entry.control_situation + 1 %></td>
+				<td><%= flow_entry.free_from_ego + 1 %></td>
+				<td><%= flow_entry.free_from_time + 1 %></td>
+				<td><%= flow_entry.clear_conditions + 1 %></td>
+				<td><%= flow_entry.great_experience + 1 %></td>
+				<td><%= flow_entry.is_voluntary? "Oui" : "Non" %></td>
+				<td><%= flow_entry.happiness_level + 1%></td>
 				<td><%= flow_entry.social_quality %></td>
 			</tr>
 		<% end %>
