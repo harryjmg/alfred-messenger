@@ -1,8 +1,10 @@
 
 <% if @flow_entries_error[0] %>
-  <p>
-    <%= @flow_entries_error[1] %>
-  </p>
+  <div class="ui blue inverted center aligned segment">
+    <p>
+      <%= @flow_entries_error[1] %>
+    </p>
+  </div>
 <% else %>
   <table class="ui celled table">
     <thead>
