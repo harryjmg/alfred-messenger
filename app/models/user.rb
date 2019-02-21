@@ -5,6 +5,11 @@ class User < ApplicationRecord
 
 	has_many :flow_entry
 
+	def stop_flow_test
+		self.update_attribute(:flow_testing, false)
+		send_text(self.psid, "Fin du test")
+	end
+
 	def start_flow_test
 		# Define random new Time
 		tableau_intervalles = []
