@@ -27,7 +27,7 @@ module ApplicationHelper
     when "Controle"
       "#CEECF5"
     when "Relaxation"
-      "#04B404"
+      "#9FF781"
     when "Ennui"
       "#CEF6CE"
     when "Apathie"
@@ -42,6 +42,6 @@ module ApplicationHelper
   end
 
   def bg_for_bool bool
-    bool ? "#58ACFA" : "#F78181"
+    bool ? "#81DAF5" : "#F78181"
   end
 end
