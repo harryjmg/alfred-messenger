@@ -27,21 +27,21 @@
     	<tr>
 				<td><%= flow_entry.created_at.to_formatted_s(:short)  %></td>
 				<td><%= flow_entry.activity_name %></td>
-				<td><%= flow_entry.theorical_state %></td>
+				<td style="background-color: <%= bg_for_state(flow_entry.theorical_state) %>"><%= flow_entry.theorical_state %></td>
 				<td><%= flow_entry.activity_category %></td>
-				<td><%= flow_entry.challenge_level + 1 %></td>
-				<td><%= flow_entry.skill_level + 1 %></td>
-				<td><%= flow_entry.feeling_competent + 1 %></td>
-				<td><%= flow_entry.mentally_absorbed + 1 %></td>
-				<td><%= flow_entry.clear_objectives + 1 %></td>
-				<td><%= flow_entry.control_situation + 1 %></td>
-				<td><%= flow_entry.free_from_ego + 1 %></td>
-				<td><%= flow_entry.free_from_time + 1 %></td>
-				<td><%= flow_entry.clear_conditions + 1 %></td>
-				<td><%= flow_entry.great_experience + 1 %></td>
-				<td><%= flow_entry.is_voluntary? ? "Oui" : "Non" %></td>
-				<td><%= flow_entry.happiness_level + 1%></td>
-				<td><%= flow_entry.social_quality %></td>
+				<td style="background-color: <%= bg_for_feelings(flow_entry.challenge_level) %>"><%= flow_entry.challenge_level + 1 %></td>
+				<td style="background-color: <%= bg_for_feelings(flow_entry.skill_level) %>"><%= flow_entry.skill_level + 1 %></td>
+				<td style="background-color: <%= bg_for_feelings(flow_entry.feeling_competent) %>"><%= flow_entry.feeling_competent + 1 %></td>
+				<td style="background-color: <%= bg_for_feelings(flow_entry.mentally_absorbed) %>"><%= flow_entry.mentally_absorbed + 1 %></td>
+				<td style="background-color: <%= bg_for_feelings(flow_entry.clear_objectives) %>"><%= flow_entry.clear_objectives + 1 %></td>
+				<td style="background-color: <%= bg_for_feelings(flow_entry.control_situation) %>"><%= flow_entry.control_situation + 1 %></td>
+				<td style="background-color: <%= bg_for_feelings(flow_entry.free_from_ego) %>"><%= flow_entry.free_from_ego + 1 %></td>
+				<td style="background-color: <%= bg_for_feelings(flow_entry.free_from_time) %>"><%= flow_entry.free_from_time + 1 %></td>
+				<td style="background-color: <%= bg_for_feelings(flow_entry.clear_conditions) %>"><%= flow_entry.clear_conditions + 1 %></td>
+				<td style="background-color: <%= bg_for_feelings(flow_entry.great_experience) %>"><%= flow_entry.great_experience + 1 %></td>
+				<td style="background-color: <%= bg_for_bool(flow_entry.is_voluntary?) %>"><%= flow_entry.is_voluntary? ? "Oui" : "Non" %></td>
+				<td style="background-color: <%= bg_for_feelings(flow_entry.happiness_level) %>"><%= flow_entry.happiness_level + 1 %></td>
+				<td style="background-color: <%= bg_for_feelings(flow_entry.social_quality) %>"><%= flow_entry.social_quality + 1 if flow_entry.social_quality %></td>
 			</tr>
 		<% end %>
   </tbody>
