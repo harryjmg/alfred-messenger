@@ -40,5 +40,5 @@ module ApplicationHelper
   end
 
   def bg_for_bool bool
-    bool? "#58ACFA" : "#F78181"
+    bool ? "#58ACFA" : "#F78181"
   end
