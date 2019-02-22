@@ -7,9 +7,7 @@ class User < ApplicationRecord
 
 	def stop_flow_test str = nil
 		self.update_attribute(:flow_testing, false)
-		if str
-			send_text(self.psid, str)
-		else
+		if str.nil?
 			send_text(self.psid, "Fin du test")
 		end
 	end
