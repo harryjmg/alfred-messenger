@@ -5,9 +5,13 @@ class User < ApplicationRecord
 
 	has_many :flow_entry
 
-	def stop_flow_test
+	def stop_flow_test str = nil
 		self.update_attribute(:flow_testing, false)
-		send_text(self.psid, "Fin du test")
+		if str
+			send_text(self.psid, str)
+		else
+			send_text(self.psid, "Fin du test")
+		end
 	end
 
 	def start_flow_test
@@ -48,11 +52,15 @@ class User < ApplicationRecord
 	private
 
 	def send_text(psid, text)
-		Bot.deliver({
-			recipient: {"id" => psid},
-			message: {
-			  text: text
-			}
-		}, access_token: ENV["ACCESS_TOKEN"])
+		begin
+			Bot.deliver({
+				recipient: {"id" => psid},
+				message: {
+				  text: text
+				}
+			}, access_token: ENV["ACCESS_TOKEN"])
+		rescue
+			self.stop_flow_test("Fin du test pour cause d'erreur dans user.send_text()")
+		end
 	end
 end
