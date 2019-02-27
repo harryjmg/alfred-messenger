@@ -41,7 +41,23 @@ class FlowEntry < ApplicationRecord
   	"clear_conditions",
   	"great_experience",
   	"is_voluntary",
+		"social_quality",
   	"happiness_level",
   	"social_quality"
 	]
+
+	def energy
+		return nil if energy_level.nil?
+		energy_level
+	end
+
+	def happiness
+		return nil if happiness_level.nil?
+		happiness_level
+	end
+
+	def social
+		return nil if social_quality.nil?
+		social_quality + 1
+	end
 end
