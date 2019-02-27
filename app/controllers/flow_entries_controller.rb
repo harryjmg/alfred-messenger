@@ -1,8 +1,7 @@
 class FlowEntriesController < ApplicationController
 
 	def index
-
-		@flow_entries = User.find_by(private_id: params[:id])&.flow_entry&.sorted_by_date
+		@flow_entries = FlowEntry.where(user: User.find_by(private_id: params[:id]))&.order(created_at: :desc).group_by{ |t| t.created_at.to_date }
 
 		if @flow_entries.nil?
 			@flow_entries_error = [ true, "Utilisateur non trouvé. As tu utilisé le bon lien ?" ]
