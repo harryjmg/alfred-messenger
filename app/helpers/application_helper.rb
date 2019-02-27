@@ -18,6 +18,26 @@ module ApplicationHelper
     end
   end
 
+  def bg_for_feelings_ten level
+    level /= 2 if level
+    case level
+    when 0
+      "#F78181"
+    when 1
+      "#F7BE81"
+    when 2
+      "#D8F781"
+    when 3
+      "#9FF781"
+    when 4
+      "#81DAF5"
+    when 5
+      "#58ACFA"
+    else
+      "white"
+    end
+  end
+
   def bg_for_state state
     case state
     when "Flow"
