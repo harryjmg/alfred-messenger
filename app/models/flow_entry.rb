@@ -41,7 +41,7 @@ class FlowEntry < ApplicationRecord
   	"clear_conditions",
   	"great_experience",
   	"is_voluntary",
-		"social_quality",
+		"energy_level",
   	"happiness_level",
   	"social_quality"
 	]
