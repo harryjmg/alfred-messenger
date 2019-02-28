@@ -14,6 +14,16 @@ def answer(message, text)
 	}, access_token: ENV["ACCESS_TOKEN"])
 end
 
+def send_to_all_recent_users text
+	n = 0
+	User.all.each do |u|
+		next if u.updated_at < (Time.now - 1.month)
+		n += 1
+		u.send_text(text)
+	end
+	return n
+end
+
 Bot.on :message do |message|
 	puts "Sender psid = #{message.sender}"
 
@@ -40,6 +50,10 @@ Bot.on :message do |message|
 			answer(message, "Ton url : https://flowtracker03.herokuapp.com/flow_entries?id=#{the_user.private_id} . Si tu as des idées pour rendre plus pertinent l'affichage de tes résultats n'hésite pas a en parler a Harry (pas moi pcq je capte rien de ce que tu dis)")
 		elsif (message.text&.upcase&.include? "HELP")
 			answer(message, "Start / Stop / Link . C'est pas sorcier")
+		elsif (message.text&.upcase&.include? "Message Harry :" && the_user.role == "admin")
+			# Broadcast a message to all recent users
+			answer(message, "Broadcast launched")
+			answer(message, "Successfully sent to #{send_to_all_recent_users(message.text)} recent users (total users : #{User.all.count})")
 		else
 			answer(message, "Harry ne m'a pas appris ta langue dsl")
 		end

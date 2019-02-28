@@ -4,15 +4,7 @@ class User < ApplicationRecord
 	include Facebook::Messenger
 
 	has_many :flow_entry
-
-	# @TODO Stop shouldnt be sendind message
-	def stop_flow_test str = nil
-		self.update_attribute(:flow_testing, false)
-		if str.nil?
-			send_text(self.psid, "Fin du test")
-		end
-	end
-
+	
 	def start_flow_test
 		# Define random new Time
 		tableau_intervalles = []
@@ -37,19 +29,12 @@ class User < ApplicationRecord
 	end
 
 	def received_test
-		send_text(self.psid, "J'ai bien recu ton echantillon de vie, merci.")
+		send_text(self.psid, "J'ai bien recu tes réponses, merci !")
 	end
 
 	def flow_test_bip
-		send_text(self.psid, "C'est l'heure des mesures ! https://alfredcorp.typeform.com/to/hwJrHr?id=#{self.private_id}")
+		send_text(self.psid, "C'est l'heure de répondre aux questions ! https://alfredcorp.typeform.com/to/hwJrHr?id=#{self.private_id}")
 	end
-
-	# @TODO Bad method name
-	def end_of_day(message)
-		send_text(self.psid, "Bonne nuit")
-	end
-
-	private
 
 	def send_text(psid, text)
 		begin
@@ -61,7 +46,8 @@ class User < ApplicationRecord
 			}, access_token: ENV["ACCESS_TOKEN"])
 		rescue
 			# If message not delivered (a cause can be that the user blocked Alfred)
-			self.stop_flow_test(0)
+			puts "This user cannot receive the message somehow"
+			self.update_attribute(:flow_testing, false) if self.flow_testing?
 		end
 	end
 end

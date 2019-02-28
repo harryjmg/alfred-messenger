@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190227071206) do
+ActiveRecord::Schema.define(version: 20190228164557) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20190227071206) do
     t.string "flow_test_cursor"
     t.string "flow_test_intervals"
     t.string "private_id"
+    t.string "role"
   end
 
 end
