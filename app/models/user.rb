@@ -5,6 +5,7 @@ class User < ApplicationRecord
 
 	has_many :flow_entry
 
+	# @TODO Stop shouldnt be sendind message
 	def stop_flow_test str = nil
 		self.update_attribute(:flow_testing, false)
 		if str.nil?
@@ -30,7 +31,7 @@ class User < ApplicationRecord
 			intervalles << " "
 		end
 
-		# Change User attributes in db
+		# Then change user attributes in db
 		current_user = self
 		current_user.update_attributes(:flow_test_intervals => intervalles, :flow_testing => true)
 	end
@@ -43,6 +44,7 @@ class User < ApplicationRecord
 		send_text(self.psid, "C'est l'heure des mesures ! https://alfredcorp.typeform.com/to/hwJrHr?id=#{self.private_id}")
 	end
 
+	# @TODO Bad method name
 	def end_of_day(message)
 		send_text(self.psid, "Bonne nuit")
 	end
@@ -58,7 +60,8 @@ class User < ApplicationRecord
 				}
 			}, access_token: ENV["ACCESS_TOKEN"])
 		rescue
-			self.stop_flow_test("Fin du test pour cause d'erreur dans user.send_text()")
+			# If message not delivered (a cause can be that the user blocked Alfred)
+			self.stop_flow_test(0)
 		end
 	end
 end

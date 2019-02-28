@@ -27,6 +27,21 @@ class FlowEntry < ApplicationRecord
 		end
 	end
 
+	def energy
+		return nil if energy_level.nil?
+		energy_level
+	end
+
+	def happiness
+		return nil if happiness_level.nil?
+		happiness_level
+	end
+
+	def social
+		return nil if social_quality.nil?
+		social_quality + 1
+	end
+
 	FLOW_ENTRY_ATTRIBUTES = [
 		"activity_name",
 		"activity_category",
@@ -45,19 +60,4 @@ class FlowEntry < ApplicationRecord
   	"happiness_level",
   	"social_quality"
 	]
-
-	def energy
-		return nil if energy_level.nil?
-		energy_level
-	end
-
-	def happiness
-		return nil if happiness_level.nil?
-		happiness_level
-	end
-
-	def social
-		return nil if social_quality.nil?
-		social_quality + 1
-	end
 end
