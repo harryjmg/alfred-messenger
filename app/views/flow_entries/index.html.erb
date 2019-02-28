@@ -37,26 +37,26 @@
       </thead>
       <tbody>
         <% flow_entries_of_day[1].each do |flow_entry| %>
-        	<tr>
+        	<tr style="color: #424242">
     				<td><%= flow_entry.created_at.to_formatted_s(:short)  %></td>
     				<td><%= flow_entry.activity_name %></td>
     				<td style="background-color: <%= bg_for_state(flow_entry.theorical_state) %>"><%= flow_entry.theorical_state %></td>
-            <td style="color: <%= bg_potential_flow(flow_entry.flow_potential) %>"><%= potential_to_text(flow_entry.flow_potential) %></td></td>
+            <td><%= flow_entry.flow_potential/10 %> / 10</td>
             <td><%= flow_entry.activity_category %></td>
-    				<td style="background-color: <%= bg_for_feelings(flow_entry.challenge_level + 1) %>"><%= flow_entry.challenge_level + 1 %></td>
-    				<td style="background-color: <%= bg_for_feelings(flow_entry.skill_level + 1) %>"><%= flow_entry.skill_level + 1 %></td>
-    				<td style="background-color: <%= bg_for_feelings(flow_entry.feeling_competent) %>"><%= flow_entry.feeling_competent %></td>
-    				<td style="background-color: <%= bg_for_feelings(flow_entry.mentally_absorbed) %>"><%= flow_entry.mentally_absorbed %></td>
-    				<td style="background-color: <%= bg_for_feelings(flow_entry.clear_objectives) %>"><%= flow_entry.clear_objectives %></td>
-    				<td style="background-color: <%= bg_for_feelings(flow_entry.control_situation) %>"><%= flow_entry.control_situation %></td>
-    				<td style="background-color: <%= bg_for_feelings(flow_entry.free_from_ego) %>"><%= flow_entry.free_from_ego %></td>
-    				<td style="background-color: <%= bg_for_feelings(flow_entry.free_from_time) %>"><%= flow_entry.free_from_time %></td>
-    				<td style="background-color: <%= bg_for_feelings(flow_entry.clear_conditions) %>"><%= flow_entry.clear_conditions %></td>
-    				<td style="background-color: <%= bg_for_feelings(flow_entry.great_experience) %>"><%= flow_entry.great_experience %></td>
+    				<td style="background-color: <%= bg_for_feelings(flow_entry.challenge_level + 1) %>"><%= flow_entry.challenge_level + 1 %> / 5</td>
+    				<td style="background-color: <%= bg_for_feelings(flow_entry.skill_level + 1) %>"><%= flow_entry.skill_level + 1 %> / 5</td>
+    				<td style="background-color: <%= bg_for_feelings(flow_entry.feeling_competent) %>"><%= flow_entry.feeling_competent %> / 5</td>
+    				<td style="background-color: <%= bg_for_feelings(flow_entry.mentally_absorbed) %>"><%= flow_entry.mentally_absorbed %> / 5</td>
+    				<td style="background-color: <%= bg_for_feelings(flow_entry.clear_objectives) %>"><%= flow_entry.clear_objectives %> / 5</td>
+    				<td style="background-color: <%= bg_for_feelings(flow_entry.control_situation) %>"><%= flow_entry.control_situation %> / 5</td>
+    				<td style="background-color: <%= bg_for_feelings(flow_entry.free_from_ego) %>"><%= flow_entry.free_from_ego %> / 5</td>
+    				<td style="background-color: <%= bg_for_feelings(flow_entry.free_from_time) %>"><%= flow_entry.free_from_time %> / 5</td>
+    				<td style="background-color: <%= bg_for_feelings(flow_entry.clear_conditions) %>"><%= flow_entry.clear_conditions %> / 5</td>
+    				<td style="background-color: <%= bg_for_feelings(flow_entry.great_experience) %>"><%= flow_entry.great_experience %> / 5</td>
     				<td style="background-color: <%= bg_for_bool(flow_entry.is_voluntary?) %>"><%= flow_entry.is_voluntary? ? "Oui" : "Non" %></td>
-            <td style="background-color: <%= bg_for_feelings_ten(flow_entry.energy) %>"><%= flow_entry.energy %></td>
-    				<td style="background-color: <%= bg_for_feelings_ten(flow_entry.happiness) %>"><%= flow_entry.happiness %></td>
-    				<td style="background-color: <%= bg_for_feelings(flow_entry.social) %>"><%= flow_entry.social %></td>
+            <td style="background-color: <%= bg_for_feelings_ten(flow_entry.energy) %>"><%= flow_entry.energy %> <%= " / 10" if flow_entry.energy %></td>
+    				<td style="background-color: <%= bg_for_feelings_ten(flow_entry.happiness) %>"><%= flow_entry.happiness %>  <%= " / 10" if flow_entry.happiness %></td>
+    				<td style="background-color: <%= bg_for_feelings(flow_entry.social) %>"><%= flow_entry.social %> <%= " / 5" if flow_entry.social %></td>
     			</tr>
         <% end %>
       </tbody>

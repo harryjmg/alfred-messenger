@@ -11,6 +11,8 @@
 // about supported directives.
 //
 // Loads all Semantic javascripts
+//= require jquery
+//= require jquery_ujs
 //= require semantic-ui
 //= require rails-ujs
 //= require turbolinks

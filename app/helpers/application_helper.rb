@@ -51,11 +51,11 @@ module ApplicationHelper
     when "Ennui"
       "#CEF6CE"
     when "Apathie"
-      "#D8D8D8"
+      "#F2F2F2"
     when "Inquiétude"
-      "#A4A4A4"
+      "#D8D8D8"
     when "Anxiété"
-      "#585858"
+      "#A4A4A4"
     else
       "white"
     end
@@ -65,18 +65,18 @@ module ApplicationHelper
     bool ? "#81DAF5" : "#D8F781"
   end
 
-  def bg_potential_flow moy
+  def color_potential_flow moy
     case moy
     when 0..20
-      "#D8D8D8"
+      "#F2F2F2"
     when 21..40
-      "#A4A4A4"
+      "#E6E6E6"
     when 41..60
-      "#848484"
+      "#D8D8D8"
     when 61..80
-      "#585858"
+      "#BDBDBD"
     when 81..100
-      "#1C1C1C"
+      "#A4A4A4"
     end
   end
 
