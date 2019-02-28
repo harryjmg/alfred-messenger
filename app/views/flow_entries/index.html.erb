@@ -16,7 +16,8 @@
         <tr>
           <th>Date</th>
           <th>Activité</th>
-          <th>Etat theorique</th>
+          <th>Etat theorique (defi/competences)</th>
+          <th>Potentiel de flow (moy ressentis)</th>
           <th>Categorie</th>
           <th>Niveau de défi</th>
           <th>Niveau de compétences</th>
@@ -40,7 +41,8 @@
     				<td><%= flow_entry.created_at.to_formatted_s(:short)  %></td>
     				<td><%= flow_entry.activity_name %></td>
     				<td style="background-color: <%= bg_for_state(flow_entry.theorical_state) %>"><%= flow_entry.theorical_state %></td>
-    				<td><%= flow_entry.activity_category %></td>
+            <td style="color: <%= bg_potential_flow(flow_entry.flow_potential) %>"><%= potential_to_text(flow_entry.flow_potential) %></td></td>
+            <td><%= flow_entry.activity_category %></td>
     				<td style="background-color: <%= bg_for_feelings(flow_entry.challenge_level + 1) %>"><%= flow_entry.challenge_level + 1 %></td>
     				<td style="background-color: <%= bg_for_feelings(flow_entry.skill_level + 1) %>"><%= flow_entry.skill_level + 1 %></td>
     				<td style="background-color: <%= bg_for_feelings(flow_entry.feeling_competent) %>"><%= flow_entry.feeling_competent %></td>

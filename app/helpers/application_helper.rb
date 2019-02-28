@@ -64,4 +64,34 @@ module ApplicationHelper
   def bg_for_bool bool
     bool ? "#81DAF5" : "#D8F781"
   end
+
+  def bg_potential_flow moy
+    case moy
+    when 0..20
+      "#D8D8D8"
+    when 21..40
+      "#A4A4A4"
+    when 41..60
+      "#848484"
+    when 61..80
+      "#585858"
+    when 81..100
+      "#1C1C1C"
+    end
+  end
+
+  def potential_to_text moy
+    case moy
+    when 0..20
+      "Tres faible"
+    when 21..40
+      "Faible"
+    when 41..60
+      "Neutre"
+    when 61..80
+      "Fort"
+    when 81..100
+      "Tres fort"
+    end
+  end
 end

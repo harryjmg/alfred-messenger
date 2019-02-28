@@ -27,6 +27,33 @@ class FlowEntry < ApplicationRecord
 		end
 	end
 
+	def flow_potential
+		attributes_to_count = [
+			# 0 to 4 (@TODO to change 1 to 5 when saving in db)
+			# "challenge_level",
+	  	# "skill_level",
+			# 1 to 5
+	  	"feeling_competent",
+	  	"mentally_absorbed",
+	  	"clear_objectives",
+	  	"control_situation",
+	  	"free_from_ego",
+	  	"free_from_time",
+	  	"clear_conditions",
+	  	"great_experience",
+	  	"social_quality"
+		]
+		tab = []
+		n = 0
+		attributes_to_count.each do |a|
+			j = read_attribute(a)
+			next if j.nil?
+			n = n + 1
+			tab << j
+		end
+		flow_potential = (tab.sum / n.to_f * 20).to_i
+	end
+
 	def energy
 		return nil if energy_level.nil?
 		energy_level

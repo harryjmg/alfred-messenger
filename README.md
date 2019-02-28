@@ -11,7 +11,7 @@ The questions are my own original adaptation from the self made test "Mash-up HS
 You can read about the article from hacking-social.com [here](https://www.hacking-social.com/2018/09/03/fl1-donner-des-sens-a-la-vie-la-piste-du-flow/).
 
 ### Why do you need to answer ?
-The advantage of this method is to give you a fresh point of view on your own life without any judgement. You can read about the concept of Flow discovered by Mihaly Csikszentmihalyi and how to test it respectively [here](https://en.wikipedia.org/wiki/Flow_(psychology) and [here](https://en.wikipedia.org/wiki/Experience_sampling_method).
+The advantage of this method is to give you a fresh point of view on your own life without any judgement. You can read about the concept of Flow discovered by Mihaly Csikszentmihalyi and how to test it respectively [here](https://en.wikipedia.org/wiki/Flow_(psychology)) and [here](https://en.wikipedia.org/wiki/Experience_sampling_method).
 
 If reading all these articles is too long for you. Just try it :)
 
