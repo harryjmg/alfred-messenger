@@ -66,7 +66,7 @@ class FlowEntry < ApplicationRecord
 
 	def social
 		return nil if social_quality.nil?
-		social_quality + 1
+		social_quality
 	end
 
 	FLOW_ENTRY_ATTRIBUTES = [
