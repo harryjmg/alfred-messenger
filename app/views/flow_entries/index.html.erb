@@ -1,4 +1,3 @@
-
 <% if @flow_entries_error[0] %>
   <div class="ui blue inverted center aligned segment">
     <p>
@@ -9,6 +8,11 @@
     <%= image_tag("alfred.png", class: "alfred", width: '100%') %>
   </div>
 <% else %>
+  <% if @private_mode %>
+    <%= link_to 'Public modo', flow_entries_path(:id => @user.private_id) %>
+  <% else %>
+    <%= link_to 'Private modo', flow_entries_path(:id => @user.private_id, "private_mode" => "true") %>
+  <% end %>
   <% @flow_entries.each do |flow_entries_of_day| %>
     <h2 class="ui header"><%= flow_entries_of_day[0].to_formatted_s(:rfc822) %></h2>
     <table class="ui celled table">
@@ -39,7 +43,7 @@
         <% flow_entries_of_day[1].each do |flow_entry| %>
         	<tr style="color: #424242">
     				<td><%= flow_entry.created_at.to_formatted_s(:short)  %></td>
-    				<td><%= flow_entry.activity_name %></td>
+    				<td class="<%= @private_mode ? "blurred" : "" %>"><%= flow_entry.activity_name %></td>
     				<td style="background-color: <%= bg_for_state(flow_entry.theorical_state) %>"><%= flow_entry.theorical_state %></td>
             <td><%= flow_entry.flow_potential/10 %> / 10</td>
             <td><%= flow_entry.activity_category %></td>

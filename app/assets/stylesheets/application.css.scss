@@ -43,3 +43,8 @@ img.alfred {
     z-index: -1;
     opacity: 0.2;
 }
+
+.blurred {
+  color: transparent;
+  text-shadow: 0 0 8px rgba(0,0,0,0.5);
+}
