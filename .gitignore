@@ -6,6 +6,7 @@
 
 # Ignore bundler config.
 /.bundle
+/Gemfile.lock
 
 # Ignore all logfiles and tempfiles.
 /log/*
@@ -19,3 +20,9 @@
 .byebug_history
 
 .env
+
+# Mac os things
+.DS_STORE
+
+# Imported db
+/latest.dump
