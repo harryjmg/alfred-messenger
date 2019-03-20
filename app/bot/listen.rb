@@ -1,9 +1,6 @@
 # app/bots/listen.rb
 require "facebook/messenger"
-
 include Facebook::Messenger
-
-Facebook::Messenger::Subscriptions.subscribe(access_token: ENV["ACCESS_TOKEN"])
 
 def answer(message, text)
 	Bot.deliver({
