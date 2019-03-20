@@ -47,7 +47,7 @@ Bot.on :message do |message|
 			answer(message, "Ton url : https://flowtracker03.herokuapp.com/flow_entries?id=#{the_user.private_id} . Si tu as des idées pour rendre plus pertinent l'affichage de tes résultats n'hésite pas a en parler a Harry (pas moi pcq je capte rien de ce que tu dis)")
 		elsif (message.text&.upcase&.include? "HELP")
 			answer(message, "Start / Stop / Link . C'est pas sorcier")
-		elsif (message.text&.upcase&.include? "Message Harry :" && the_user.role == "admin")
+		elsif ((message.text&.upcase&.include? "Message Harry :") && the_user.role == "admin")
 			# Broadcast a message to all recent users
 			answer(message, "Broadcast launched")
 			answer(message, "Successfully sent to #{send_to_all_recent_users(message.text)} recent users (total users : #{User.all.count})")
