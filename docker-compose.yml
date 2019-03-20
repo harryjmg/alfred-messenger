@@ -6,16 +6,16 @@ services:
       - ./tmp/db:/var/lib/postgresql/data
   web:
     build: .
-    command: bundle exec rails s -p 3001 -b '0.0.0.0'
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
     volumes:
-      - .:/myapp
+      - .:/alfred
     depends_on:
       - db
     environment:
       VIRTUAL_HOST: alfred.localhost
-      VIRTUAL_PORT: 3001
+      VIRTUAL_PORT: 3000
     expose:
-      - 3001
+      - 3000
 networks:
   default:
     external:

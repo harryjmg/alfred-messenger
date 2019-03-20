@@ -246,6 +246,7 @@ DEPENDENCIES
   pg (>= 0.18, < 2.0)
   puma (~> 3.7)
   rails (~> 5.1.6)
+  rake (= 12.3.2)
   sass-rails (~> 5.0)
   selenium-webdriver
   semantic-ui-sass
