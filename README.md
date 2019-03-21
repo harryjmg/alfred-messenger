@@ -18,7 +18,7 @@ If reading all these articles is too long for you. Just try it :)
 ### Configuration
 The hard part is to connect your Rails app to your Facebook app. The facebook-messenger gem which Alfred is using has a [good documentation](https://github.com/jgorset/facebook-messenger#configuration) for that.
 
-Once you've setted the environment variables, you are good to go !
+Once you've set the environment variables, you are good to go !
 
 ### Why Alfred ?
 An old private joke for the viewers of [my youtube channel](https://www.youtube.com/channel/UC61GK_nOLSJdzAK5hoR2mJA) (french speaking).
