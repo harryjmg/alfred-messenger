@@ -22,7 +22,7 @@ class FlowEntriesController < ApplicationController
 
 	def set_errors
 		if @user.nil?
-			@flow_enries_error = [ true, "Utilisateur non trouvé. As tu utilisé le bon lien ?" ]
+			@flow_entries_error = [ true, "Utilisateur non trouvé. As tu utilisé le bon lien ?" ]
 		elsif @flow_entries&.count == 0
 			@flow_entries_error = [ true, "Tu as bien lancé le test, maintenant surveille simplement les messages d'Alfred" ]
 		elsif @flow_entries_by_day.count < 2 && @flow_entries&.count < 10
