@@ -26,7 +26,7 @@ class FlowEntriesController < ApplicationController
 		elsif @flow_entries&.count == 0
 			@flow_entries_error = [ true, "Tu as bien lancé le test, maintenant surveille simplement les messages d'Alfred" ]
 		elsif @flow_entries_by_day.count < 2 && @flow_entries&.count < 10
-			@flow_entries_error = [ true, "Tu auras acces a la liste apres 10 réponses sur 2 jours (progression : #{(@flow_entry.count / 10.0 * 100).to_i}%)" ]
+			@flow_entries_error = [ true, "Tu auras acces a la liste apres 10 réponses sur 2 jours (progression : #{(@flow_entries.count / 10.0 * 100).to_i}%)" ]
 		else
 			@flow_entries_error = [ false, "Ok" ]
 		end
