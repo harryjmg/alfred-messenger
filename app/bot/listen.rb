@@ -16,7 +16,7 @@ def send_to_all_recent_users text
 	User.all.each do |u|
 		next if u.updated_at < (Time.now - 1.month)
 		n += 1
-		u.send_text(text)
+		u.send_text(u.psid, text)
 	end
 	return n
 end
@@ -49,8 +49,9 @@ Bot.on :message do |message|
 			answer(message, "Start / Stop / Link . C'est pas sorcier")
 		elsif ((message.text&.upcase&.include? "MESSAGE HARRY") && the_user.role == "admin")
 			# Broadcast a message to all recent users
+			n = send_to_all_recent_users(message.text)
 			answer(message, "Broadcast launched")
-			answer(message, "Successfully sent to #{send_to_all_recent_users(message.text)} recent users (total users : #{User.all.count})")
+			answer(message, "Successfully sent to #{n} recent users (total users : #{User.all.count})")
 		else
 			answer(message, "Harry ne m'a pas appris ta langue dsl")
 		end
