@@ -13,7 +13,7 @@
   <% else %>
     <%= link_to 'Private modo', flow_entries_path(:id => @user.private_id, "private_mode" => "true") %>
   <% end %>
-  <% @flow_entries.each do |flow_entries_of_day| %>
+  <% @flow_entries_by_day.each do |flow_entries_of_day| %>
     <h2 class="ui header"><%= flow_entries_of_day[0].to_formatted_s(:rfc822) %></h2>
     <table class="ui celled table">
       <thead>

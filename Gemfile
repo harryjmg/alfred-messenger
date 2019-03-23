@@ -31,6 +31,8 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'dotenv-rails'
+  gem "better_errors"
+  gem "binding_of_caller"
 end
 
 group :development do
