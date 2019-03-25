@@ -3,5 +3,6 @@ class PagesController < ApplicationController
   end
 
   def about
+    render :index
   end
 end

@@ -33,6 +33,10 @@ group :development, :test do
   gem 'dotenv-rails'
   gem "better_errors"
   gem "binding_of_caller"
+  gem 'rspec-rails', '~> 3.8'
+  gem 'guard-rspec', require: false
+  gem 'pry'
+  gem 'rb-readline'
 end
 
 group :development do
