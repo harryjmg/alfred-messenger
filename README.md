@@ -21,14 +21,16 @@ The hard part is to connect your Rails app to your Facebook app. The facebook-me
 
 You also need to set a typeform webhook (if you want to use Typeform).
 
-## To dev
+## To dev for users
 Many things are still missing to make the app better...
  - [ ] **Unitary tests**
  - [ ] **Structure flow inputs per 7-10-14 days session** (better lisibility and UX)
  - [ ] **Paginate flow inputs**
  - [ ] etc etc...
+If you have any ideas for this list, I invite you to open an issue and I will add it.
 
- If you have any ideas for this list, I invite you to open an issue.
+## To dev for admin
+  - [ ] **An admin Dashboard (recurrent users etc...)**
 
 ## Any questions ?
 Feel free to open an issue or send me an email at harry.jmg@gmail.com
