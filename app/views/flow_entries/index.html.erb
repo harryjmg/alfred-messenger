@@ -1,9 +1,4 @@
-<% if @flow_entries_error[0] %>
-  <div class="ui blue inverted center aligned segment">
-    <p>
-      <%= @flow_entries_error[1] %>
-    </p>
-  </div>
+<% if flash[:error] || flash[:info] %>
   <div class="shadow">
     <%= image_tag("alfred.png", class: "alfred", width: '100%') %>
   </div>

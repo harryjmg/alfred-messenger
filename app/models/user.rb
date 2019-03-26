@@ -5,6 +5,10 @@ class User < ApplicationRecord
 
 	has_many :flow_entry
 
+	def is_admin?
+		role == "admin"
+	end
+
 	def start_flow_test
 		# Define random new Time
 		tableau_intervalles = []
