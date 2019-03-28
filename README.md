@@ -23,6 +23,7 @@ You also need to set a typeform webhook (if you want to use Typeform).
 
 ## To dev for users
 Many things are still missing to make the app better...
+ - [ ] **Add SMS support :)**
  - [ ] **Unitary tests**
  - [ ] **Structure flow inputs per 7-10-14 days session** (better lisibility and UX)
  - [ ] **Paginate flow inputs**
