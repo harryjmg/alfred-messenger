@@ -10,7 +10,7 @@ namespace :flow_test do
   			current_time = Time.now
   			flow_test_intervals_array = u.flow_test_intervals.split(' ')
         if flow_test_intervals_array[0].nil?
-          u.stop_flow_test
+          u.update(flow_testing: false)
         else
           next_time = Time.parse(flow_test_intervals_array[0])
     			if current_time > next_time
