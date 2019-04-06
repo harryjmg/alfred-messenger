@@ -4,11 +4,11 @@ module ApplicationHelper
     when 0
       "black"
     when 1
-      "#F78181"
-    when 2
       "#F7BE81"
-    when 3
+    when 2
       "#D8F781"
+    when 3
+      "#CEECF5"
     when 4
       "#81DAF5"
     when 5
@@ -28,7 +28,7 @@ module ApplicationHelper
     when 2
       "#D8F781"
     when 3
-      "#CEECF5"
+      "#9FF781"
     when 4
       "#81DAF5"
     when 5
