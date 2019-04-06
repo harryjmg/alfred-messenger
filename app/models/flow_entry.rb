@@ -72,8 +72,8 @@ class FlowEntry < ApplicationRecord
 	FLOW_ENTRY_ATTRIBUTES = [
 		"activity_name",
 		"activity_category",
-  	"challenge_level",
   	"skill_level",
+  	"challenge_level",
   	"feeling_competent",
   	"mentally_absorbed",
   	"clear_objectives",
