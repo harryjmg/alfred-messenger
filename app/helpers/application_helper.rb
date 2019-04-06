@@ -2,13 +2,13 @@ module ApplicationHelper
   def bg_for_feelings level
     case level
     when 0
-      "#F78181"
+      "black"
     when 1
-      "#F7BE81"
+      "#F78181"
     when 2
-      "#D8F781"
+      "#F7BE81"
     when 3
-      "#9FF781"
+      "#D8F781"
     when 4
       "#81DAF5"
     when 5
@@ -28,7 +28,7 @@ module ApplicationHelper
     when 2
       "#D8F781"
     when 3
-      "#9FF781"
+      "#CEECF5"
     when 4
       "#81DAF5"
     when 5

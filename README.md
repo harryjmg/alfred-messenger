@@ -23,7 +23,8 @@ You also need to set a typeform webhook (if you want to use Typeform).
 
 ## To dev for users
 Many things are still missing to make the app better...
- - [ ] **Add SMS support :)**
+ - [ ] **Add SMS or other platforms support :)**
+ - [ ] **Prendre en compte la moyenne subjective pour les couleurs**
  - [ ] **Unitary tests**
  - [ ] **Structure flow inputs per 7-10-14 days session** (better lisibility and UX)
  - [ ] **Paginate flow inputs**
