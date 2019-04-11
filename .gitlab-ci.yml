@@ -1,5 +1,9 @@
 image: ruby:2.5.1
 
+stages:
+  - rspec
+  - staging
+
 cache:
   paths:
     - vendor/bundle
@@ -26,3 +30,10 @@ before_script:
 rspec:
   script:
     - bundle exec rspec
+
+staging:
+  stage: staging
+  only:
+    - master
+  script:
+    - dpl --provider=heroku --api-key=${HEROKU_API_KEY} --app=staging-alfred
