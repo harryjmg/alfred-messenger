@@ -22,6 +22,7 @@ before_script:
   - apt-get update -qq && apt-get install -y -qq postgresql postgresql-contrib libpq-dev cmake
   - ruby -v
   - which ruby
+  - gem install dpl
   - gem install bundler --no-document
   - RAILS_ENV=test bundle install --jobs $(nproc) "${FLAGS[@]}"
   - cp config/database.yml.gitlab config/database.yml
