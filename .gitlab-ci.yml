@@ -28,6 +28,7 @@ before_script:
   - RAILS_ENV=test bundle exec rake db:create db:schema:load
 
 rspec:
+  stage: rspec
   script:
     - bundle exec rspec
 
