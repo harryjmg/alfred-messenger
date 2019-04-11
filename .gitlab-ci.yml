@@ -1,4 +1,17 @@
-image: ruby-2.5.1
+image: ruby:2.5.1
+
+cache:
+  paths:
+    - vendor/bundle
+    - node_modules
+
+services:
+  - postgres:latest
+
+variables:
+  BUNDLE_PATH: vendor/bundle
+  DISABLE_SPRING: 1
+  DB_HOST: postgres
 
 before_script:
   - apt-get update -qq && apt-get install -y -qq sqlite3 libsqlite3-dev nodejs
