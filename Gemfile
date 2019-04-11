@@ -37,6 +37,7 @@ group :development, :test do
   gem 'guard-rspec', require: false
   gem 'pry'
   gem 'rb-readline'
+  gem 'therubyracer', platforms: :ruby
 end
 
 group :development do
