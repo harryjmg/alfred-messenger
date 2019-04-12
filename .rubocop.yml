@@ -1,0 +1,25 @@
+Rails:
+  Enabled: true
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 160
+
+Metrics/BlockLength:
+  Exclude:
+    - 'config/environments/*.rb'
+    - 'config/routes.rb'
+    - 'spec/**/*.rb'
+    - 'Guardfile'
+
+AllCops:
+  Exclude:
+    - 'db/**/*.rb'
