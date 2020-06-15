@@ -22,6 +22,7 @@ def send_to_all_recent_users text
 end
 
 Bot.on :message do |message|
+	return if message.nil?
 	puts "Sender psid = #{message.sender}"
 
 	# Set "vu" and "typing..."
