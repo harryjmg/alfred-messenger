@@ -61,6 +61,6 @@ Bot.on :message do |message|
 			answer(message, "Harry ne m'a pas appris ta langue dsl")
 		end
 	rescue Facebook::Messenger::FacebookError => e
-		logger.debug(e.inspect)
+		Rails.logger.debug(e.inspect)
 	end
 end
