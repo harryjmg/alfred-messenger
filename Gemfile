@@ -5,10 +5,10 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby "2.5.1"
+ruby "3.0.2"
 
 gem 'rake', '12.3.3'
-gem 'rails', '~> 5.1.6'
+gem 'rails', "~> 7.0.2.2"
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.12'
 gem 'sass-rails', '~> 5.0'
@@ -38,7 +38,7 @@ group :development, :test do
   gem 'guard-rspec', require: false
   gem 'pry'
   gem 'rb-readline'
-  gem 'therubyracer', platforms: :ruby
+  #gem 'therubyracer', platforms: :ruby
 end
 
 group :development do
